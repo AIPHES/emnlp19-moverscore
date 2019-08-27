@@ -1,6 +1,8 @@
 <h1 align="left">Evaluation-as-Service</h1>
 
-<p align="left"> EMNLP19 paper: "MoverScore: Text Generation Evaluating with Contextualized Embeddings and Earth Mover Distance" </p>
+<p align="left"> Accepted to EMNLP-19: MoverScore: Text Generation Evaluating with Contextualized Embeddings and Earth Mover Distance </p>
+
+
 
 <h2 align="left">What is MoverScore and EvalSerivce</h2>
 
@@ -47,4 +49,18 @@ example_4 = [system, references, 'wmd_2'] # BERTWordMover-bigram
 example_5 = [system, references, 'smd'] # BERTSentMover
 
 ec.eval([example_1,example_2,example_3,example_4,example_5])
+```
+# Reference
+If you find our source code useful, please consider citing our work.
+```
+@inproceedings{zhao2019moverscore,
+  title = {MoverScore: Text Generation Evaluating with Contextualized Embeddings and Earth Mover Distance},
+  month = {August},
+  year = {2019},
+  author = {Wei Zhao, Maxime Peyrard, Fei Liu, Yang Gao, Christian M. Meyer, Steffen Eger},
+  address = {Hong Kong, China},
+  publisher = {Association for Computational Linguistics},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing},
+  url = {http://tubiblio.ulb.tu-darmstadt.de/114295/}
+}
 ```
