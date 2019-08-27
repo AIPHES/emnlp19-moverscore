@@ -61,6 +61,5 @@ If you find our source code useful, please consider citing our work.
   address = {Hong Kong, China},
   publisher = {Association for Computational Linguistics},
   booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing},
-  url = {http://tubiblio.ulb.tu-darmstadt.de/114295/}
 }
 ```
