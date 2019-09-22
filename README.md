@@ -51,7 +51,20 @@ example_5 = [system, references, 'smd'] # BERTSentMover
 ec.eval([example_1,example_2,example_3,example_4,example_5])
 ```
 # Repeatability of Experiment on MT
-Download the BERT model finetuned on MNLI before runing experiment, please refer to [MNLI](https://drive.google.com/open?id=1LyWbyMg4CVHktbGPcm2pgtIPeiLg0W0g)
+
+cs-en pearson: 0.6697729571321734
+de-en pearson: 0.7082533257014317
+ru-en pearson: 0.7378642263697597
+tr-en pearson: 0.7618484905206852
+zh-en pearson: 0.7441824952790345
+
+System                  | cs-en | de-en | ru-en | tr-en | zh-en
+----------------------- | :------: | :----------: | :------:
+BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 | 0.719 
+RUSE(*)                 | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 | 0.685 
+WMD-1+BERTMNLI+PMeans   | **0.670**     | **0.708**     | **0.737** | **0.761**| **0.744**
+
+To reproduce the above numbers, please download the BERT model finetuned on [MNLI](https://drive.google.com/open?id=1LyWbyMg4CVHktbGPcm2pgtIPeiLg0W0g) before runing experiment.
 
 ```bash
 python ./run_MT.py
