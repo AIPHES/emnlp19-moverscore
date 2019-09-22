@@ -50,6 +50,22 @@ example_5 = [system, references, 'smd'] # BERTSentMover
 
 ec.eval([example_1,example_2,example_3,example_4,example_5])
 ```
+# Repeatability of Experiment on MT
+Download the BERT model finetuned on MNLI before runing experiment, please refer to [MNLI](https://drive.google.com/open?id=1LyWbyMg4CVHktbGPcm2pgtIPeiLg0W0g)
+
+```bash
+python ./run_MT.py
+```
+
+Word Mover Score (Unigram) + BERT-MNLI would yield the Pearson correlation below:
+```bash
+cs-en  pearson: 0.6697729571321734
+de-en  pearson: 0.7082533257014317
+ru-en  pearson: 0.7378642263697597
+tr-en  pearson: 0.7618484905206852
+zh-en  pearson: 0.7441824952790345
+```
+
 # Reference
 If you find our source code useful, please consider citing our work.
 ```
