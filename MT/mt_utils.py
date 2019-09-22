@@ -1,6 +1,6 @@
 import glob
 from io import StringIO
-import os
+import os 
 
 import pandas as pd
 from scipy.stats import pearsonr
