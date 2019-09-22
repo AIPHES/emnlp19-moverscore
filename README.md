@@ -65,15 +65,6 @@ To reproduce the above numbers, please access the MT folder and then download th
 python ./run_MT.py
 ```
 
-Word Mover Score (Unigram) + BERT-MNLI would yield the Pearson correlation below:
-```bash
-cs-en  pearson: 0.6697729571321734
-de-en  pearson: 0.7082533257014317
-ru-en  pearson: 0.7378642263697597
-tr-en  pearson: 0.7618484905206852
-zh-en  pearson: 0.7441824952790345
-```
-
 # Reference
 If you find our source code useful, please consider citing our work.
 ```
