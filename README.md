@@ -19,7 +19,7 @@ WMD-2+BERTMNLI+PMeans   | **0.679** | **0.710**     | 0.736 | **0.763**| 0.740
 This repo knows the dataset in WMT17 and handles downloading & preprocessing silently. Just run the command below.
 
 ```bash
-python ./run_MT.py
+python examples/run_MT.py
 ```
 
 # Reference
