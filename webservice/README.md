@@ -1,9 +1,5 @@
 <h1 align="left">Evaluation-as-Service</h1>
 
-<p align="left"> Accepted to EMNLP-19: MoverScore: Text Generation Evaluating with Contextualized Embeddings and Earth Mover Distance </p>
-
-
-
 <h2 align="left">What is MoverScore and EvalSerivce</h2>
 
 **MoverScore** measures semantic distance between system and reference texts by aligning semantically similar words and finding the corresponding travel costs.
