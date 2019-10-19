@@ -16,8 +16,6 @@ BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 | 0.719
 WMD-1+BERTMNLI+PMeans   | 0.670    | 0.708     | **0.738** | 0.762| **0.744**
 WMD-2+BERTMNLI+PMeans   | **0.679** | **0.710**     | 0.736 | **0.763**| 0.740
 
-To reproduce the above numbers, please access the MT folder and then download the BERT model finetuned on [MNLI](https://drive.google.com/open?id=1LyWbyMg4CVHktbGPcm2pgtIPeiLg0W0g) before runing experiment.
-
 ```bash
 python ./run_MT.py
 ```
