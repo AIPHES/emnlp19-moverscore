@@ -1,5 +1,5 @@
 
-MoverScore ([Zhao, 2019](http://aclweb.org/anthology/W18-6319)) provides shareable, comparable evaluation metrics for text generation tasks, which achieves high correlation with human judgments and considers to be the successor of BLEU scores.
+MoverScore ([Zhao, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides shareable, comparable evaluation metrics for text generation tasks, which achieves high correlation with human judgments and considers to be the successor of BLEU scores.
 
 # QUICK START
 
