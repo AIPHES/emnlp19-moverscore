@@ -16,6 +16,8 @@ BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 | 0.719
 WMD-1+BERTMNLI+PMeans   | 0.670    | 0.708     | **0.738** | 0.762| **0.744**
 WMD-2+BERTMNLI+PMeans   | **0.679** | **0.710**     | 0.736 | **0.763**| 0.740
 
+This repo knows the dataset in WMT17 and handles downloading & preprocessing silently. Just run the command below.
+
 ```bash
 python ./run_MT.py
 ```
