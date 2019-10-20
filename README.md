@@ -26,7 +26,7 @@ python examples/run_MT.py
 
 #### MoverScore Specification
 | Parameters       | Description                        |
-|:----------------:|:----------------------------:|
+|----------------|----------------------------|
 | references       | a list of reference texts      |
 | translations     | a list of translation texts            |
 | idf_dict_ref     | idf dictionary extracted from the reference corpus | 
