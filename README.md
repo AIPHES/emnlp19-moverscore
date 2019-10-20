@@ -28,9 +28,9 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 
 System                  | cs-en | de-en | ru-en | tr-en | zh-en
 ----------------------- | :------: | :----------: | :------: | :------: | :------:
-RUSE(supervised metric) | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 | 0.685 
-SentBLEU                | 0.435 | 0.432 | 0.484 |  0.538 | 0.512 | 0.719 
-BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 | 0.719 
+SentBLEU                | 0.435 | 0.432 | 0.484 |  0.538 | 0.512 
+RUSE(supervised metric) | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 
+BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 
 WMD-1+BERTMNLI+PMeans   | 0.670    | 0.708     | **0.738** | 0.762| **0.744**
 WMD-2+BERTMNLI+PMeans   | **0.679** | **0.710**     | 0.736 | **0.763**| 0.740
 
