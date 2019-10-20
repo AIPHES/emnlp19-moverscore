@@ -4,11 +4,10 @@ MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides e
 # Overview
 
 MoverScore is a simply and easy-to-use evaluation metric, which combines contextualized word embeddings from BERT finetuned on MNLI and set-based similarity criterion like Earth Mover Distance, as illustrated below:
-![](./MoverScore.png){:height="50%" width="50%"}
 
-{:refdef: style="width: 10px; height: 10px"}
-![](./MoverScore.png){:height="50%" width="50%"}
-{: refdef}
+<img src="./MoverScore.png" width="40%">
+
+
 
 # QUICK START
 
