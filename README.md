@@ -1,6 +1,11 @@
 
 MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides evaluation metrics for text generation tasks such as machine translation, summarization, etc. It achieves high correlation with human judgments and can be considered a successor of the BLEU score metrics.
 
+# Overview
+
+MoverScore is a simply evaluation metric, which combines contextualized word embeddings from BERT finetuned on MNLI and set-based similarity measurement Earth Mover Distance, as illustrated below:
+![](./MoverScore.png "MoverScore")
+
 # QUICK START
 
 Install the Python module (Python 3 only)
@@ -9,7 +14,7 @@ Install the Python module (Python 3 only)
 
 # Using MoverScore for Evaluating Machine Translation
 
-#### MoverScore Specification
+### MoverScore Specification
 
 ```bash
 scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, \
@@ -24,7 +29,7 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
 | remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
 
-#### The Results in Machine Translation
+### The Results in Machine Translation
 
 System                  | cs-en | de-en | ru-en | tr-en | zh-en
 ----------------------- | :------: | :----------: | :------: | :------: | :------:
