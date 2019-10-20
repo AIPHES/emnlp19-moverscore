@@ -9,6 +9,20 @@ Install the Python module (Python 3 only)
 
 # Using MoverScore for the MT Evaluation
 
+# MoverScore Specification
+
+```bash
+scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, n_gram=1, remove_subwords=True)
+```
+| Parameters       | Description                        |
+|----------------|----------------------------|
+| references       | a list of reference texts      |
+| translations     | a list of translation texts            |
+| idf_dict_ref     | idf dictionary extracted from the reference corpus | 
+| idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
+| n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
+| remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
+
 System                  | cs-en | de-en | ru-en | tr-en | zh-en
 ----------------------- | :------: | :----------: | :------: | :------: | :------:
 RUSE(supervised metric) | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 | 0.685 
@@ -23,16 +37,6 @@ Obtain the results in WMT17 with one line code:
 ```bash
 python examples/run_MT.py
 ```
-
-#### MoverScore Specification
-| Parameters       | Description                        |
-|----------------|----------------------------|
-| references       | a list of reference texts      |
-| translations     | a list of translation texts            |
-| idf_dict_ref     | idf dictionary extracted from the reference corpus | 
-| idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
-| n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
-| remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
 
 # Reference
 If you find our source code useful, please consider citing our work.
