@@ -18,7 +18,7 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | Parameters       | Description                        |
 |----------------|----------------------------|
 | references       | a list of reference texts      |
-| translations     | a list of translation texts            |
+| translations     | a list of system translation texts            |
 | idf_dict_ref     | idf dictionary extracted from the reference corpus | 
 | idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
