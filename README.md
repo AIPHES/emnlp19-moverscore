@@ -12,7 +12,8 @@ Install the Python module (Python 3 only)
 # MoverScore Specification
 
 ```bash
-scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, n_gram=1, remove_subwords=True)
+scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, \
+                          n_gram=1, remove_subwords=True)
 ```
 | Parameters       | Description                        |
 |----------------|----------------------------|
