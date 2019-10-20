@@ -1,5 +1,5 @@
 
-MoverScore ([Zhao, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides shareable, comparable evaluation metrics for text generation tasks, which achieves high correlation with human judgments and considers to be the successor of BLEU scores.
+MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides evaluation metrics for text generation tasks such as machine translation, summarization, etc. It achieves high correlation with human judgments and can be considered a successor of the BLEU score metrics.
 
 # QUICK START
 
@@ -23,6 +23,16 @@ Obtain the results in WMT17 with one line code:
 ```bash
 python examples/run_MT.py
 ```
+
+#### MoverScore Specification
+| Parameters       | Description                        |
+|:----------------:|:----------------------------:|
+| references       | a list of reference texts      |
+| translations     | a list of translation texts            |
+| idf_dict_ref     | idf dictionary extracted from the reference corpus | 
+| idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
+| n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
+| remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
 
 # Reference
 If you find our source code useful, please consider citing our work.
