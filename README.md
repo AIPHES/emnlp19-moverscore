@@ -11,7 +11,7 @@ MoverScore is a simply and easy-to-use evaluation metric, which combines context
 
 # QUICK START
 
-Install the Python module (Python 3 only)
+Install the Python module (Python 3 only and GPU required)
 
     pip3 install moverscore
 
@@ -20,6 +20,12 @@ Install the Python module (Python 3 only)
 ### MoverScore Specification
 
 ```bash
+from moverscore import get_idf_dict, word_mover_score
+from collections import defaultdict
+
+idf_dict_hyp = get_idf_dict(translations) # idf_dict_hyp = defaultdict(lambda: 1.)
+idf_dict_ref = get_idf_dict(references) # idf_dict_ref = defaultdict(lambda: 1.)
+
 scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, \
                           n_gram=1, remove_subwords=True)
 ```
