@@ -13,10 +13,11 @@ USERHOME = os.path.expanduser("~")
 MOVERSCORE_DIR = os.environ.get('MOVERSCORE', os.path.join(USERHOME, '.moverscore'))
 output_dir = os.path.join(MOVERSCORE_DIR, 'MT')
 
-MNLI_BERT = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/0.6/WMT17.zip'
+
+WMT17 = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/untagged-4319ffaf8b5803a47283/WMT17.zip'
 
 
-def download_MNLI_BERT(url, filename):
+def download_WMT17(url, filename):
     with open(filename, 'wb') as f:
         response = requests.get(url, stream=True)
         total = response.headers.get('content-length')
@@ -37,11 +38,11 @@ def download_MNLI_BERT(url, filename):
 if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
-    tarball = os.path.join(output_dir, os.path.basename(MNLI_BERT))
+    tarball = os.path.join(output_dir, os.path.basename(WMT17))
     rawdir = os.path.join(output_dir, 'raw')
     
-    print("Downloading %s to %s" %( MNLI_BERT, tarball))
-    download_MNLI_BERT(MNLI_BERT, tarball)
+    print("Downloading %s to %s" %( WMT17, tarball))
+    download_WMT17(WMT17, tarball)
     
     if tarball.endswith('.zip'):                 
         z = zipfile.ZipFile(tarball, 'r')
