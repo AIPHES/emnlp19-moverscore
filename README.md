@@ -1,68 +1,59 @@
-<h1 align="left">Evaluation-as-Service</h1>
 
-<p align="left"> Accepted to EMNLP-19: MoverScore: Text Generation Evaluating with Contextualized Embeddings and Earth Mover Distance </p>
+MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides evaluation metrics for text generation tasks such as machine translation, summarization, etc. It achieves high correlation with human judgments and can be considered a successor of the BLEU score metrics.
 
+# Overview
 
+MoverScore is a simply and easy-to-use evaluation metric, which combines contextualized word embeddings from BERT finetuned on MNLI and set-based similarity criterion like Earth Mover Distance, as illustrated below:
 
-<h2 align="left">What is MoverScore and EvalSerivce</h2>
+<p align="center">
+<img src="./MoverScore.png">
+</p>
 
-**MoverScore** measures semantic distance between system and reference texts by aligning semantically similar words and finding the corresponding travel costs.
+# QUICK START
 
-**EvalSerivce** is a evaluation framework for NLG tasks, assigning scores (e.g., ROUGE ans MoverScore) to system-generated text by comparing it against human references for content matching.
+Install the Python module (Python 3 only and GPU required)
 
-<h2 align="left">Installation</h2>
+    pip3 install moverscore
 
-Install the server and client via `pip`. They can be installed separately or even on *different* machines:
+# Using MoverScore for Evaluating Machine Translation
+
+### MoverScore Specification
+
 ```bash
-cd server/
-python3 setup.py install # server
-cd client/
-python3 setup.py install # client
+from moverscore import get_idf_dict, word_mover_score
+from collections import defaultdict
+
+idf_dict_hyp = get_idf_dict(translations) # idf_dict_hyp = defaultdict(lambda: 1.)
+idf_dict_ref = get_idf_dict(references) # idf_dict_ref = defaultdict(lambda: 1.)
+
+scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, \
+                          n_gram=1, remove_subwords=True)
 ```
+| Parameters       | Description                        |
+|----------------|----------------------------|
+| references       | a list of reference texts      |
+| translations     | a list of system translation texts            |
+| idf_dict_ref     | idf dictionary extracted from the reference corpus | 
+| idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
+| n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
+| remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
 
-Note that the server MUST be running on **Python >= 3.5**. Again, the server does not support Python 2!
-
-The client can be running on both Python 2 and 3 [for the following consideration](#q-can-i-run-it-in-python-2).
-
-<h2 align="left">Getting Started</h2>
-
-#### 1. Start the evaluation service
-After installing the server, you should start a serivce as follows:
-```bash
-summ-eval-start -data_dir ../../ -num_worker=4
-```
-This will start the service with four workers, meaning that it can handle up to four **concurrent** requests.
-
-#### 2. Use Client to Get Evaluation scores
-Now you can get scores:
-```python
-from summ_eval.client import EvalClient
-ec = EvalClient()
-
-system = ['A guy with a read jacket is standing on a boat']
-references = ['A man wearing a lifevest is sitting in a canoe','A small white ferry rides through water']
-
-example_1 = [system, references, 'rouge_1']
-example_2 = [system, references, 'rouge_2']
-example_3 = [system, references, 'wmd_1'] # BERTWordMover-unigram
-example_4 = [system, references, 'wmd_2'] # BERTWordMover-bigram
-example_5 = [system, references, 'smd'] # BERTSentMover
-
-ec.eval([example_1,example_2,example_3,example_4,example_5])
-```
-<h2 align="left">Repeatability of Experiment on MT</h2>
+### The Results in Machine Translation
 
 System                  | cs-en | de-en | ru-en | tr-en | zh-en
 ----------------------- | :------: | :----------: | :------: | :------: | :------:
-RUSE(supervised metric) | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 | 0.685 
-BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 | 0.719 
+SentBLEU                | 0.435 | 0.432 | 0.484 |  0.538 | 0.512 
+RUSE(supervised metric) | 0.624 | 0.644 | 0.673 | 0.716 | 0.691 
+BERTScore               | 0.670 | 0.686 | 0.729 | 0.714 | 0.704 
 WMD-1+BERTMNLI+PMeans   | 0.670    | 0.708     | **0.738** | 0.762| **0.744**
 WMD-2+BERTMNLI+PMeans   | **0.679** | **0.710**     | 0.736 | **0.763**| 0.740
 
-To reproduce the above numbers, please access the MT folder and then download the BERT model finetuned on [MNLI](https://drive.google.com/open?id=1LyWbyMg4CVHktbGPcm2pgtIPeiLg0W0g) before runing experiment.
+This repo knows the dataset in WMT17 and handles downloading & preprocessing silently. 
+
+Obtain the results in WMT17 with one line code:
 
 ```bash
-python ./run_MT.py
+python examples/run_MT.py
 ```
 
 # Reference
