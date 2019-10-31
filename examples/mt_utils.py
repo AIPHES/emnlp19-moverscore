@@ -14,7 +14,7 @@ MOVERSCORE_DIR = os.environ.get('MOVERSCORE', os.path.join(USERHOME, '.moverscor
 output_dir = os.path.join(MOVERSCORE_DIR, 'MT')
 
 
-WMT17 = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/untagged-4319ffaf8b5803a47283/WMT17.zip'
+WMT17 = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/0.6/WMT17.zip'
 
 
 def download_WMT17(url, filename):

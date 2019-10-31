@@ -21,7 +21,7 @@ import zipfile
 USERHOME = os.path.expanduser("~")
 MOVERSCORE_DIR = os.environ.get('MOVERSCORE', os.path.join(USERHOME, '.moverscore'))
 
-MNLI_BERT = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/untagged-4319ffaf8b5803a47283/MNLI_BERT.zip'
+MNLI_BERT = 'https://github.com/AIPHES/emnlp19-moverscore/releases/download/0.6/MNLI_BERT.zip'
 output_dir = os.path.join(MOVERSCORE_DIR)
 
 
