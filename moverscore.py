@@ -46,10 +46,11 @@ def download_MNLI_BERT(url, filename):
 if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
-    tarball = os.path.join(output_dir, os.path.basename(MNLI_BERT))
-    rawdir = os.path.join(output_dir, 'raw')
-    
-    print("Downloading %s to %s" %( MNLI_BERT, tarball))
+tarball = os.path.join(output_dir, os.path.basename(MNLI_BERT))
+rawdir = os.path.join(output_dir, 'raw')
+
+if not os.path.exists(tarball):    
+    print("Downloading %s to %s" %(MNLI_BERT, tarball))
     download_MNLI_BERT(MNLI_BERT, tarball)
     
     if tarball.endswith('.zip'):                 

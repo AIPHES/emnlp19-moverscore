@@ -38,9 +38,10 @@ def download_WMT17(url, filename):
 if not os.path.exists(output_dir):
     os.makedirs(output_dir, exist_ok=True)
 
-    tarball = os.path.join(output_dir, os.path.basename(WMT17))
-    rawdir = os.path.join(output_dir, 'raw')
-    
+tarball = os.path.join(output_dir, os.path.basename(WMT17))
+rawdir = os.path.join(output_dir, 'raw')
+
+if not os.path.exists(tarball):    
     print("Downloading %s to %s" %( WMT17, tarball))
     download_WMT17(WMT17, tarball)
     
