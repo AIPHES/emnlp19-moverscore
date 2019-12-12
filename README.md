@@ -15,7 +15,7 @@ Install the Python module (Python 3 only and GPU required)
 
     pip3 install moverscore
 
-# Using MoverScore for Evaluating Machine Translation
+# Evaluating Machine Translation and Summarization with MoverScore 
 
 ### MoverScore Specification
 
@@ -35,8 +35,9 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | translations     | a list of system translation texts            |
 | idf_dict_ref     | idf dictionary extracted from the reference corpus | 
 | idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
+| stopwords        | a set of functional words  | 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
-| remove_subwords  | if the subwords (verb tense) like 'ING/ED' need to be removed | 
+| remove_subwords  | when subwords, e.g., verb tense ('ING/ED') need to be removed | 
 
 ### The Results in Machine Translation
 
@@ -54,6 +55,19 @@ Obtain the results in WMT17 with one line code:
 
 ```bash
 python examples/run_MT.py
+
+```
+
+### The Results in Summarization (TAC-2009)
+
+System                  | Resp(Pearson) | Resp(Spearman) | Pyr(Pearson) | Pyr(Spearman)
+----------------------- | :------: | :----------: | :------: | :------: 
+ROUGE-1                | 0.704 |  0.565 |  0.808 | 0.692
+ROUGE-2                | 0.727 |  0.583 |  0.803 | 0.694
+WMD-1+BERTMNLI+PMeans  | **0.754** |  **0.594** |  **0.831** | **0.701**
+
+```bash
+python examples/run_summarization.py
 ```
 
 # Reference
