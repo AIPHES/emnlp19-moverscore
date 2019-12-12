@@ -36,7 +36,7 @@ for _ in reference_list.items():
         idf_dict_hyp = get_idf_dict(translations)
         
         df_system = pd.DataFrame(columns=('metric', 'lp', 'testset', 'system', 'sid', 'score'))
-        scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, n_gram=1, remove_subwords=True,
+        scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gram=1, remove_subwords=True,
                                       batch_size=64)
         num_samples = len(references)
         df_system = pd.DataFrame({'metric': [metric] * num_samples,
