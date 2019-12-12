@@ -251,3 +251,4 @@ def word_mover_score(refs, hyps, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gr
             score = 1 - emd(c1, c2, distance_matrix.double().cpu().numpy())
             preds.append(score)
     return preds
+
