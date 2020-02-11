@@ -77,7 +77,7 @@ translation = 'they have air conditioning and new toilets.'
 plot_example(True, reference, translation)
 ```
 <p align="center">
-<img src="./plot_dist.pdf">
+<img src="./plot_dist.png">
 </p>
 
 # Reference
