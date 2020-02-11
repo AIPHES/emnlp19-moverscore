@@ -69,6 +69,16 @@ WMD-1+BERTMNLI+PMeans  | **0.754** |  **0.594** |  **0.831** | **0.701**
 ```bash
 python examples/run_summarization.py
 ```
+# Visualization
+```bash
+from moverscore_v2 import plot_example
+reference = 'they are now equipped with air conditioning and new toilets.'
+translation = 'they have air conditioning and new toilets.'
+plot_example(True, reference, translation)
+```
+<p align="center">
+<img src="./plot_dist.pdf">
+</p>
 
 # Reference
 If you find our source code useful, please consider citing our work.
