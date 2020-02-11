@@ -36,7 +36,7 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | translations     | a list of system translation texts            |
 | idf_dict_ref     | idf dictionary extracted from the reference corpus | 
 | idf_dict_hyp     | idf dictionary extracted from the system hypothesis corpus | 
-| stopwords        | a set of functional words  | 
+| stopwords        | a set of functional words (e.g., being used in text summarization because of lengthy sequences)  | 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
 | remove_subwords  | when subwords, e.g., verb tense ('ING/ED') need to be removed | 
 
