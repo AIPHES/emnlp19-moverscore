@@ -4,6 +4,9 @@ import json
 import codecs
 import copy
 
+#from moverscore import get_idf_dict, word_mover_score
+from moverscore_v2 import get_idf_dict, word_mover_score, plot_example
+
 BASE_FOLDER = "data"
 name = "tac.09.mds.gen.resp-pyr"
 
@@ -51,8 +54,6 @@ resp_data = dict(list(resp_data.items()))
 human_scores = ['pyr_score', 'responsiveness']
 dataset = [list(pyr_data.items()), list(resp_data.items())]
 
-
-from moverscore import get_idf_dict, word_mover_score
 with open('stopwords.txt', 'r', encoding='utf-8') as f:
     stop_words = set(f.read().strip().split(' '))
 
