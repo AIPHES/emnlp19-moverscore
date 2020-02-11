@@ -28,7 +28,7 @@ idf_dict_hyp = get_idf_dict(translations) # idf_dict_hyp = defaultdict(lambda: 1
 idf_dict_ref = get_idf_dict(references) # idf_dict_ref = defaultdict(lambda: 1.)
 
 scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, \
-                          n_gram=1, remove_subwords=True)
+                          stop_words=[], n_gram=1, remove_subwords=True)
 ```
 | Parameters       | Description                        |
 |----------------|----------------------------|
