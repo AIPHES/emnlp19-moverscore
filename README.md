@@ -18,8 +18,10 @@ Install the Python module (Python 3 only and GPU required)
 # Evaluating Machine Translation and Summarization with MoverScore 
 
 ```bash
+# Use the original version with BERTMNLI to reproduce the results.
 #from moverscore import get_idf_dict, word_mover_score
-from moverscore_v2 import get_idf_dict, word_mover_score # Recommend to use this version (DistilBERT) for evaluation, if the speed is your concern.
+# Recommend to use this version (DistilBERT) for evaluation, if the speed is your concern.
+from moverscore_v2 import get_idf_dict, word_mover_score 
 from collections import defaultdict
 
 idf_dict_hyp = get_idf_dict(translations) # idf_dict_hyp = defaultdict(lambda: 1.)
