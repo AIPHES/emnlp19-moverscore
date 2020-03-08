@@ -1,9 +1,9 @@
 
-MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) provides evaluation metrics for text generation tasks such as machine translation, summarization, etc. It achieves high correlation with human judgments and can be considered a successor of the BLEU score metrics.
+MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) is a monolingual measure of evaluating the similarity between a sentence pair written in the same language. It achieves much higher correlation with human judgments than BLEU on machine translation, summarization and image captioning.
 
 # Overview
 
-MoverScore is a simply and easy-to-use evaluation metric, which combines contextualized word embeddings from BERT finetuned on MNLI and set-based similarity criterion like Earth Mover Distance, as illustrated below:
+The following Figure describes the way that MoverScore uses BERT and Earth Mover Distance to measure the similarity between two sentences. 
 
 <p align="center">
 <img src="./MoverScore.png">
