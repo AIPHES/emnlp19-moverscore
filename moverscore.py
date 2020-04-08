@@ -81,8 +81,13 @@ model = BertForSequenceClassification.from_pretrained(output_dir, 3)
 model.eval()
 model.to(device)
 
+def truncate(tokens):
+    if len(tokens) > tokenizer.max_len - 2:
+        tokens = tokens[0:(tokenizer.max_len - 2)]
+    return tokens
+
 def process(a):
-    a = ["[CLS]"]+tokenizer.tokenize(a)+["[SEP]"]
+    a = ["[CLS]"]+truncate(tokenizer.tokenize(a))+["[SEP]"]
     a = tokenizer.convert_tokens_to_ids(a)
     return set(a)
 
@@ -119,7 +124,7 @@ def bert_encode(model, x, attention_mask):
 
 def collate_idf(arr, tokenize, numericalize, idf_dict,
                 pad="[PAD]", device='cuda:0'):
-    tokens = [["[CLS]"]+tokenize(a)+["[SEP]"] for a in arr]
+    tokens = [["[CLS]"]+truncate(tokenize(a))+["[SEP]"] for a in arr]
     arr = [numericalize(a) for a in tokens]
 
     idf_weights = [[idf_dict[i] for i in a] for a in arr]
@@ -224,7 +229,7 @@ def word_mover_score(refs, hyps, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gr
         ref_embedding = torch.cat([ref_embedding_min, ref_embedding_avg, ref_embedding_max], -1)
         hyp_embedding = torch.cat([hyp_embedding_min, hyp_embedding_avg, hyp_embedding_max], -1)
 
-        for i in range(len(ref_lens)):   
+        for i in range(len(ref_tokens)):   
             if remove_subwords:
                 ref_ids = [k for k, w in enumerate(ref_tokens[i]) if w not in set(string.punctuation)and '##' not in w and w not in stop_words]
                 hyp_ids = [k for k, w in enumerate(hyp_tokens[i]) if w not in set(string.punctuation)and '##' not in w and w not in stop_words]
