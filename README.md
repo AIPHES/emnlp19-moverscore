@@ -1,9 +1,9 @@
 
-MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) is a monolingual measure of evaluating the similarity between a sentence pair written in the same language. It achieves much higher correlation with human judgments than BLEU on machine translation, summarization and image captioning.
+MoverScore ([Zhao et.al, 2019](https://arxiv.org/pdf/1909.02622.pdf)) is a monolingual measure of evaluating the similarity between a sentence pair written in the same language. It achieves much higher correlation with human judgments than BLEU on machine translation, summarization and image captioning. By default, this repo uses English BERT to measure the similarity of a English sentence pair. For other languages, a multilingual BERT in moverscore_v2.py has to be specified.
 
 # Overview
 
-The following Figure describes the way that MoverScore uses BERT and Earth Mover Distance to measure the similarity between two sentences. 
+The following Figure describes the way that MoverScore uses BERT and Earth Mover Distance to measure the similarity between two sentences.  
 
 <p align="center">
 <img src="./MoverScore.png">
