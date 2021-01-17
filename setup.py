@@ -39,7 +39,7 @@ setup(
 
     keywords = ['machine translation, evaluation, NLP, natural language processing, computational linguistics'],
 
-    py_modules = ["moverscore"],
+    py_modules = ["moverscore", "moverscore_v2"],
 
     install_requires = ['typing', 'portalocker'],
 
