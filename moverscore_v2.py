@@ -165,7 +165,7 @@ def word_mover_score(refs, hyps, idf_dict_ref, idf_dict_hyp, stop_words=[], n_gr
             dst = distance_matrix[i]
             _, flow = emd_with_flow(c1, c2, dst)
             flow = np.array(flow, dtype=np.float32)
-            score = 1 - np.sum(flow * dst)
+            score = 1./(1. + np.sum(flow * dst))#1 - np.sum(flow * dst)
             preds.append(score)
 
     return preds
@@ -210,7 +210,7 @@ def plot_example(is_flow, reference, translation, device='cuda:0'):
         new_flow = np.array(flow, dtype=np.float32)    
         res = new_flow[:len(ref_tokens[i]), len(ref_idf[i]): (len(ref_idf[i])+len(hyp_tokens[i]))]
     else:    
-        res = 1 - dst[:len(ref_tokens[i]), len(ref_idf[i]): (len(ref_idf[i])+len(hyp_tokens[i]))]
+        res = 1./(1. + dst[:len(ref_tokens[i]), len(ref_idf[i]): (len(ref_idf[i])+len(hyp_tokens[i]))]) 
 
     r_tokens = ref_tokens[i]
     h_tokens = hyp_tokens[i]
