@@ -12,7 +12,7 @@ def get_version():
 setup(
     name = 'moverscore',
 
-    version = 0.95,
+    version = 0.96,
 
     description = 'MoverScore: Evaluating text generation with contextualized embeddings and earth mover distance',
     long_description = 'MoverScore is a semantic-based evaluation metric for text generation tasks, e.g., machine translation, text summarization, image captioning, question answering and etc, where the system and reference texts are encoded by contextualized word embeddings finetuned on Multi-Natural-Language-Inference, then the Earth Mover Distance is leveraged to compute the semantic distance by comparing two sets of embeddings resp. to the system and reference text',
