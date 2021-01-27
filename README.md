@@ -17,7 +17,7 @@ Install the Python module (Python 3 only and GPU required)
 
 # Evaluating Machine Translation and Summarization with MoverScore 
 
-```bash
+```python
 # Use the original version with BERTMNLI to reproduce the results.
 #from moverscore import get_idf_dict, word_mover_score
 # Recommend to use this version (DistilBERT) for evaluation, if the speed is your concern.
@@ -39,6 +39,17 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | stopwords        | a set of functional words (e.g., being used in text summarization because of lengthy sequences)  | 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
 | remove_subwords  | when subwords, e.g., verb tense ('ING/ED') need to be removed | 
+
+
+### Use another model instead of DistilBert
+
+```python
+import os 
+os.environ['MOVERSCORE_MODEL'] = "albert-base-v2"
+
+from moverscore_v2 import get_idf_dict
+idf_dict_hyp = get_idf_dict(translations)
+```
 
 ### The Results in Machine Translation
 
@@ -71,8 +82,9 @@ WMD-1+BERTMNLI+PMeans  | **0.754** |  **0.594** |  **0.831** | **0.701**
 python examples/run_summarization.py
 ```
 # Visualization
-```bash
+```python
 from moverscore_v2 import plot_example
+
 reference = 'they are now equipped with air conditioning and new toilets.'
 translation = 'they have air conditioning and new toilets.'
 plot_example(True, reference, translation)
