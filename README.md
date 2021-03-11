@@ -40,6 +40,24 @@ scores = word_mover_score(references, translations, idf_dict_ref, idf_dict_hyp, 
 | n_gram           | unigram-based MoverScore (n-gram=1), bigram-based MoverScore (n-gram=2) | 
 | remove_subwords  | when subwords, e.g., verb tense ('ING/ED') need to be removed | 
 
+### Example of Reporting MoverScore at sentence and corpus levels.
+
+Single- and multi-references evaluations are supported. The input format is exactly identical as in SacreBLEU. See the example in example/example.py.
+
+```python
+refs = [['The dog bit the man.', 'It was not unexpected.', 'The man bit him first.'],
+        ['The dog had bit the man.', 'No one was surprised.', 'The man had bitten the dog.']]
+sys = ['The dog bit the man.', "It wasn't surprising.", 'The man had just bitten him.']
+
+moverscore = corpus_score(sys, refs)
+```
+
+```python
+refs = ['The dog bit the man.', 'The dog had bit the man.']
+sys = 'The dog bit the man.'
+
+moverscore = sentence_score(sys, refs)
+```
 
 ### Use another model instead of DistilBert
 
