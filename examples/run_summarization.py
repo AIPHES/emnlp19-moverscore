@@ -4,8 +4,8 @@ import json
 import codecs
 import copy
 
-#from moverscore import get_idf_dict, word_mover_score
-from moverscore_v2 import get_idf_dict, word_mover_score, plot_example
+from moverscore import get_idf_dict, word_mover_score
+#from moverscore_v2 import get_idf_dict, word_mover_score, plot_example
 
 BASE_FOLDER = "data"
 name = "tac.09.mds.gen.resp-pyr"
