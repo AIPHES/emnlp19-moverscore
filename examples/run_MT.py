@@ -2,8 +2,8 @@ import tqdm
 import pandas as pd
 from mosestokenizer import MosesDetokenizer
 from mt_utils import load_data, load_metadata, output_MT_correlation
-#from moverscore import get_idf_dict, word_mover_score
-from moverscore_v2 import get_idf_dict, word_mover_score, plot_example
+from moverscore import get_idf_dict, word_mover_score
+#from moverscore_v2 import get_idf_dict, word_mover_score, plot_example
 import os 
 
 USERHOME = os.path.expanduser("~")
