@@ -48,11 +48,11 @@ def corpus_score(sys_stream: List[str],
         hypo, *refs = lines
         corpus_score += sentence_score(hypo, refs, trace=0)
         
-    corpus_score /= len(fhs)
+    corpus_score /= len(sys_stream)
 
     return corpus_score
 
-def test_sentence_score():
+def test_corpus_score():
     
     refs = [['The dog bit the man.', 'It was not unexpected.', 'The man bit him first.'],
             ['The dog had bit the man.', 'No one was surprised.', 'The man had bitten the dog.']]
@@ -63,7 +63,7 @@ def test_sentence_score():
     print(bleu.score)
     print(mover)
     
-def test_corpus_score():
+def test_sentence_score():
     
     refs = ['The dog bit the man.', 'The dog had bit the man.']
     sys = 'The dog bit the man.'
