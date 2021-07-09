@@ -62,7 +62,10 @@ def bert_encode(model, x, attention_mask):
     model.eval()
     with torch.no_grad():
         result = model(x, attention_mask = attention_mask)
-    return result[2]
+    if model_name == 'distilbert-base-uncased':
+        return result[1] 
+    else:
+        return result[2] 
 
 #with open('stopwords.txt', 'r', encoding='utf-8') as f:
 #    stop_words = set(f.read().strip().split(' '))
