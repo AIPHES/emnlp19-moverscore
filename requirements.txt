@@ -1,3 +1,4 @@
 torch>=1.0.0
 pyemd==0.5.1
 pytorch-transformers>=1.1.0
+numpy>=1.24
